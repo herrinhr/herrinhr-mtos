@@ -258,3 +258,19 @@
 <p>YOU MAKE THIS WAIVER BECAUSE OF YOUR CONSIDERED OPINION AND BELIEF THAT YOUR CLAIM OR ASSERTION OF SOVEREIGN IMMUNITY IN ANY DISPUTE ARISING FROM OR IN CONNECTION WITH THIS AGREEMENT WOULD BE INAPPROPRIATE AND REPUGNANT TO THE FAIR ADMINISTRATION OF JUSTICE. THIS SECTION, AND YOUR ABSOLUTE WAIVER OF SOVEREIGN IMMUNITY, SHALL SURVIVE THE AGREEMENT IN ALL JURISDICTIONS, AT ALL TIMES, AND FOR ALL PURPOSES FOREVER.</p>
 <p>YOU AGREE, ASSERT, WARRANT, AND PROCLAIM THAT YOU, THE NATURAL PERSON WITH THE AUTHORITY TO EXECUTE THIS AGREEMENT, POSSESS THE REQUISITE LEGAL AUTHORITY TO WAIVE SOVEREIGN IMMUNITY.</p>
 </div>
+
+<script>
+  (function () {
+    function sendHeight() {
+      var height = document.body.scrollHeight;
+      window.parent.postMessage({ type: 'tos-resize', height: height }, '*');
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+    setTimeout(sendHeight, 300);
+    setTimeout(sendHeight, 1000);
+    if (window.ResizeObserver) {
+      new ResizeObserver(sendHeight).observe(document.body);
+    }
+  })();
+</script>
